@@ -1,0 +1,42 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Preview",
+                "command": "preview"
+            }
+        ]
+    },
+    {
+        "id": "preferences",
+        "children":
+        [
+            {
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Preview",
+                        "children":
+                        [
+                            {
+                                "caption": "Settings - Default",
+                                "command": "open_file", "args": {
+                                    "file": "${packages}/Preview/Preview.sublime-settings"
+                                }
+                            },
+                            {
+                                "caption": "Settings - User",
+                                "command": "open_file", "args": {
+                                    "file": "${packages}/User/Preview.sublime-settings"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
