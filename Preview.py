@@ -1,14 +1,26 @@
 import sublime, sublime_plugin
 import webbrowser, pprint, re
 
-settings = sublime.load_settings(__name__ + '.sublime-settings')
+settings = None
 
-class PreviewCommand(sublime_plugin.TextCommand):	
+class PreviewCommand(sublime_plugin.TextCommand):   
+
     def is_enabled(self):
         # if this view has no file name associated (untitled file), disable the command
-        return self.view.file_name()
+        return self.view.file_name() != None
 
     def run(self, edit):
+        global settings
+
+        # load settings
+        if settings == None:
+            print("Preview: Loading settings")
+            settings = sublime.load_settings('Preview.sublime-settings')
+
+        if settings.get('rules') == None:
+            print("Preview: No 'rules' section found in plugin settings")
+            return
+
         # save file if it is dirty
         if self.view.is_dirty():
             self.view.run_command('save')
@@ -57,7 +69,7 @@ class PreviewCommand(sublime_plugin.TextCommand):
 
         # if URL is not empty, open it in an associated application
         if url:
-            print "Preview: " + url
-            webbrowser.open_new(url)
+            print("Preview: " + url)
+            webbrowser.open_new_tab(url)
         else:
-            print "Preview: URL is empty"
+            print("Preview: No matching rules found, nothing to do")

@@ -1,12 +1,18 @@
 About
 =====
 
-Preview is a Sublime Text 2 plugin that maps your local project files to URLs and opens them in your browser for preview.
+Preview is a Sublime Text 2/3 plugin that maps your local project files to URLs and opens them in your browser for preview.
 
-Installation 
-============
+Installation for Sublime Text 2
+===============================
 
 - Install 'Package Control', then search for 'Preview' and install
+
+Installation for Sublime Text 3
+===============================
+
+- In Sublime Text 3, go to `Preferences > Browse Packages`, create a folder called `Preview` there
+  and put the contents of the repo in this folder
 
 Initial setup
 =============
@@ -20,13 +26,17 @@ Edit plugin settings (`Preferences > Package Settings > Preview > Settings — U
                 "url": ""
             },
 
-            // allow opening local .htm and .html in browser
+            // allow opening local .htm, .html and .xhtml in browser
             {
                 "path_suffix": ".htm",
                 "url_prefix": "file:///"
             },
             {
                 "path_suffix": ".html",
+                "url_prefix": "file:///"
+            },
+            {
+                "path_suffix": ".xhtml",
                 "url_prefix": "file:///"
             },
 
@@ -66,6 +76,11 @@ Usage
 
 Pressing `F12` will map current file to an URL and open this URL in your default browser. If no rule is matched, the file
 will be opened locally as `file:///...` in a program associated with this file extension (not necessarily a browser).
+
+Version 1.1
+===========
+
+Added compatibility with Sublime Text 3
 
 Version 1.0
 ===========

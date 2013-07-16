@@ -4,8 +4,8 @@
         "children":
         [
             {
-                "caption": "Preview",
-                "command": "preview"
+                "command": "preview",
+                "caption": "Preview"
             }
         ]
     },

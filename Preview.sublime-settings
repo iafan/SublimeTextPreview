@@ -8,13 +8,17 @@
             "url": ""
         },
 
-        // allow opening local .htm and .html in browser
+        // allow opening local .htm, .html and .xhtml in browser
         {
             "path_suffix": ".htm",
             "url_prefix": "file:///"
         },
         {
             "path_suffix": ".html",
+            "url_prefix": "file:///"
+        },
+        {
+            "path_suffix": ".xhtml",
             "url_prefix": "file:///"
         },
 
